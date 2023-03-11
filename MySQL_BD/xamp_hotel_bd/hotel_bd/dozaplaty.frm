@@ -1,0 +1,16 @@
+TYPE=VIEW
+query=select `hotel_bd`.`gosc`.`IDOsoby` AS `IDOsoby`,`hotel_bd`.`gosc`.`Nazwisko` AS `Nazwisko`,`hotel_bd`.`gosc`.`Imie` AS `Imie`,sum((`hotel_bd`.`rezerwacja`.`DataDO` - `hotel_bd`.`rezerwacja`.`DataOD`) * `hotel_bd`.`typpokoju`.`CenaP` + `hotel_bd`.`usluga`.`CenaU`) AS `Name_exp_4` from ((((((`hotel_bd`.`rezerwacja` join `hotel_bd`.`typpokoju`) join `hotel_bd`.`pokoj`) join `hotel_bd`.`pozycjarezerwacji`) join `hotel_bd`.`usluga`) join `hotel_bd`.`gosc`) join `hotel_bd`.`sklad`) where `hotel_bd`.`typpokoju`.`IDTypuPokoju` = `hotel_bd`.`pokoj`.`IDTypuPokoju` and `hotel_bd`.`pozycjarezerwacji`.`IDUslugi` = `hotel_bd`.`usluga`.`IDUslugi` and `hotel_bd`.`pozycjarezerwacji`.`IDRezerwacji` = `hotel_bd`.`rezerwacja`.`IDRezerwacji` and `hotel_bd`.`gosc`.`IDOsoby` = `hotel_bd`.`sklad`.`IDOsoby` and `hotel_bd`.`rezerwacja`.`NrPokoju` = `hotel_bd`.`pokoj`.`NrPokoju` group by `hotel_bd`.`gosc`.`IDOsoby`,`hotel_bd`.`gosc`.`Nazwisko`,`hotel_bd`.`gosc`.`Imie`
+md5=c77fcdfe80bf42475f88035862bd73fc
+updatable=0
+algorithm=0
+definer_user=root
+definer_host=localhost
+suid=1
+with_check_option=0
+timestamp=2021-02-10 05:29:05
+create-version=2
+source=SELECT \n        `hotel_bd`.`gosc`.`IDOsoby` AS `IDOsoby`,\n        `hotel_bd`.`gosc`.`Nazwisko` AS `Nazwisko`,\n        `hotel_bd`.`gosc`.`Imie` AS `Imie`,\n        SUM((`hotel_bd`.`rezerwacja`.`DataDO` - `hotel_bd`.`rezerwacja`.`DataOD`) * `hotel_bd`.`typpokoju`.`CenaP` + `hotel_bd`.`usluga`.`CenaU`) AS `Name_exp_4`\n    FROM\n        ((((((`hotel_bd`.`rezerwacja`\n        JOIN `hotel_bd`.`typpokoju`)\n        JOIN `hotel_bd`.`pokoj`)\n        JOIN `hotel_bd`.`pozycjarezerwacji`)\n        JOIN `hotel_bd`.`usluga`)\n        JOIN `hotel_bd`.`gosc`)\n        JOIN `hotel_bd`.`sklad`)\n    WHERE\n        `hotel_bd`.`typpokoju`.`IDTypuPokoju` = `hotel_bd`.`pokoj`.`IDTypuPokoju`\n            AND `hotel_bd`.`pozycjarezerwacji`.`IDUslugi` = `hotel_bd`.`usluga`.`IDUslugi`\n            AND `hotel_bd`.`pozycjarezerwacji`.`IDRezerwacji` = `hotel_bd`.`rezerwacja`.`IDRezerwacji`\n            AND `hotel_bd`.`gosc`.`IDOsoby` = `hotel_bd`.`sklad`.`IDOsoby`\n            AND `hotel_bd`.`rezerwacja`.`NrPokoju` = `hotel_bd`.`pokoj`.`NrPokoju`\n    GROUP BY `hotel_bd`.`gosc`.`IDOsoby` , `hotel_bd`.`gosc`.`Nazwisko` , `hotel_bd`.`gosc`.`Imie`
+client_cs_name=utf8mb4
+connection_cl_name=utf8mb4_general_ci
+view_body_utf8=select `hotel_bd`.`gosc`.`IDOsoby` AS `IDOsoby`,`hotel_bd`.`gosc`.`Nazwisko` AS `Nazwisko`,`hotel_bd`.`gosc`.`Imie` AS `Imie`,sum((`hotel_bd`.`rezerwacja`.`DataDO` - `hotel_bd`.`rezerwacja`.`DataOD`) * `hotel_bd`.`typpokoju`.`CenaP` + `hotel_bd`.`usluga`.`CenaU`) AS `Name_exp_4` from ((((((`hotel_bd`.`rezerwacja` join `hotel_bd`.`typpokoju`) join `hotel_bd`.`pokoj`) join `hotel_bd`.`pozycjarezerwacji`) join `hotel_bd`.`usluga`) join `hotel_bd`.`gosc`) join `hotel_bd`.`sklad`) where `hotel_bd`.`typpokoju`.`IDTypuPokoju` = `hotel_bd`.`pokoj`.`IDTypuPokoju` and `hotel_bd`.`pozycjarezerwacji`.`IDUslugi` = `hotel_bd`.`usluga`.`IDUslugi` and `hotel_bd`.`pozycjarezerwacji`.`IDRezerwacji` = `hotel_bd`.`rezerwacja`.`IDRezerwacji` and `hotel_bd`.`gosc`.`IDOsoby` = `hotel_bd`.`sklad`.`IDOsoby` and `hotel_bd`.`rezerwacja`.`NrPokoju` = `hotel_bd`.`pokoj`.`NrPokoju` group by `hotel_bd`.`gosc`.`IDOsoby`,`hotel_bd`.`gosc`.`Nazwisko`,`hotel_bd`.`gosc`.`Imie`
+mariadb-version=100417
